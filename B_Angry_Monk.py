@@ -1,22 +1,20 @@
-def solve(arr):
-    _mx, mx_idx = 0, 0
-    for idx, val in enumerate(arr):
-        if arr[idx] > arr[mx_idx]:
-            _mx = val
-            mx_idx = idx
-    
-    res = 0
-    for idx, val in enumerate(arr):
-        if idx != mx_idx:
-            res += 2*val-1
-    
-    return res
+import sys
 
-for _ in range(int(input())):
-    n, k = (int(_) for _ in input().split())
-    arr = [int(_) for _ in input().split()]
-    print(solve(arr))
+def solve_opt():
+    it = iter(sys.stdin.buffer.read().split())
+    t = int(next(it))
+    out = []
+    for _ in range(t):
+        n = int(next(it)); k = int(next(it))
+        max_a = 0
+        for i in range(k):
+            v = int(next(it))
+            if v > max_a:
+                max_a = v
+        # Minimal operations: 2*(n - max_a) - (k - 1)
+        ans = 2 * (n - max_a) - (k - 1)
+        out.append(str(ans))
+    print("\n".join(out))
 
-
-
-
+if __name__ == "__main__":
+    solve_opt()
