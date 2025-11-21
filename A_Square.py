@@ -1,10 +1,10 @@
-def solve(xs):
-    return (max(xs) - min(xs))**2
+def solve(sides: list[int]) -> str:
+    a, b, c, d = sorted(sides)
+    if a != b or a != c or a != d:
+        return "NO"
+    
+    return "YES"
 
 for t in range(int(input())):
-    xs = []
-    for _ in range(4):
-        x, y = (int(_) for _ in input().strip().split())
-        xs.append(x)
-
-    print(solve(xs))
+    sides = list(map(int, input().split()))
+    print(solve(sides))
