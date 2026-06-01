@@ -1,9 +1,9 @@
 def solve(n: int, k: int):
-    pairs = n + n//2
-    if k <= 2*pairs:
-        return (k + 1)//2
+    total = 4*n - 2
+    if k == total:
+        return 2*n
     
-    return min(k - pairs, 3*n - 2)
+    return (k+1)//2
 
 for t in range(int(input())):
     n, k = map(int, input().split())
